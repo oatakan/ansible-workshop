@@ -1,0 +1,21 @@
+= Ansible Workshop
+
+include::agenda.adoc[]
+
+include::setup.adoc[]
+
+include::exercise 1-0.adoc[]
+
+include::exercise 1-1.adoc[]
+
+include::exercise 1-2.adoc[]
+
+include::exercise 1-3.adoc[]
+
+include::exercise 1-4.adoc[]
+
+include::exercise 1-5.adoc[]
+
+include::resources.adoc[]
+
+include::wrap up.adoc[]

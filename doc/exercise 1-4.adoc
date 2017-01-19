@@ -1,0 +1,177 @@
+== Exercise 1.4 - Configuring Ansible Tower
+
+In this exercise, we are going to configure Tower so that we can run a playbook.
+
+=== The Tower UI
+
+There are a number of constructs in the Ansible Tower UI that enable multi-tenancy, notifications, scheduling, etc. However, we are only going to focus on a few of the key contructs that are required for this workshop today.
+
+- Credentials
+- Projects
+- Inventory
+- Job Template
+
+=== Logging into Tower and Installing the License Key
+
+*Step 1:* To log in, use the username *admin* and and the password *ansibleWS*.
+
+image::images/ansible_tower_login_screen.png[Ansible Tower Login Screen]
+
+_Figure 3: Ansible Tower Login Screen_
+
+As soon as you login, you will prompted to request a license or browse for an existing license file
+
+image::images/uploading_license.png[Uploading a License]
+
+_Figure 4: Uploading a License_
+
+*Step 2:* Choose BROWSE and upload your recently downloaded license file into Tower.
+
+*Step 3:* Select _"I agree to the End User License Agreement"_
+
+*Step 4:* Click SUBMIT.
+
+=== Creating a Credential
+
+Credentials are utilized by Tower for authentication when launching jobs against machines, synchronizing with inventory sources, and importing project content from a version control system.
+
+There are many http://docs.ansible.com/ansible-tower/latest/html/userguide/credentials.html#credential-types[types of credentials] including machine, network, and various cloud providers. In this workshop, we are using a machine credential.
+
+*Step 1:* Select the gear icon image:images/gear_icon.png[gear icon].
+
+*Step 2:* Select CREDENTIALS.
+
+*Step 3:* Click ADD.
+
+*Step 4:* Complete the form using the following entries:
+
+|===
+|NAME |Ansible Workshop Credential
+
+|DESCRIPTION
+|Machine credential for run job templates during workshop
+
+|ORGANIZATION
+|Default
+
+|TYPE
+|Machine
+
+|USERNAME
+|Your Workshop Username
+
+|PASSWORD
+|Your Workshop Password
+
+|PRIVILEGE ESCALATION
+|PRIVILEGE ESCALATION
+|===
+
+image::images/credential_details.png[Adding a Credential]
+
+_Figure 5: Adding a Credential_
+
+*Step 5:* Click SAVE.
+
+=== Creating a Project
+
+A Project is a logical collection of Ansible playbooks, represented in Tower. You can manage playbooks and playbook directories by either placing them manually under the Project Base Path on your Tower server, or by placing your playbooks into a source code management (SCM) system supported by Tower, including Git, Subversion, and Mercurial.
+
+*Step 1:* Click PROJECTS.
+
+*Step 2:* Select ADD.
+
+*Step 3:* Complete the form using the following entries:
+
+
+|===
+|NAME |Ansible Workshop Project
+
+|DESCRIPTION
+|Boston workshop playbooks
+
+|ORGANIZATION
+|Default
+
+|SCM TYPE
+|Git
+
+|SCM URL
+|https://github.com/ansible/lightbulb
+
+|SCM BRANCH
+|v2
+
+|SCM UPDATE OPTIONS
+| Clean (checked)
+
+ Delete on Update (checked)
+
+ Update on Launch (checked)
+
+|===
+
+image::images/project_detail.png[Defining a Project]
+
+_Figure 6: Defining a Project_
+
+*Step 4:* Clik SAVE.
+
+=== Creating an Inventory
+
+An inventory is a collection of hosts against which jobs may be launched. Inventories are divided into groups and these groups contain the actual hosts. Groups may be sourced manually, by entering host names into Tower, or from one of Ansible Tower’s supported cloud providers.
+
+An Inventory can also be imported into Tower using the tower-manage command and this is how we are going to add an inventory for this workshop.
+
+*Step 1:* Click INVENTORIES.
+
+*Step 2:* Select ADD.
+
+*Step 3:* Complete the form using the following entries:
+
+
+|===
+|NAME |Ansible Workshop Inventory
+
+|DESCRIPTION
+|Boston workshop hosts
+
+|ORGANIZATION
+|Default
+|===
+
+image::images/create_inventory.png[Create an Inventory]
+
+_Figure 7: Create an Inventory_
+
+*Step 4:* Click SAVE.
+
+*Step 5:* Using ssh, login to your control node
+
+    ssh <username>@<IP_Address_of_your_control_node>
+
+*Step 6:* Use the tower-manage command to import an existing inventory. (Be sure to replace <username> with your actual username)
+
+    sudo tower-manage inventory_import --source=/home/<username>/lightbulb/lab_inventory/<username>-instances.txt --inventory-name="Ansible Workshop Inventory"
+
+You should see output similar to the following:
+
+image::images/import_inventory_to_tower.png[Importing an inventory with tower-manage]
+
+_Figure 8: Importing an inventory with tower-manage_
+
+Feel free to browse your inventory in Tower. You should now notice that the inventory has been populated with Groups and that each of those groups contain hosts.
+
+image::images/inventory_with_groups.png[Inventory with Groups]
+
+_Figure 9: Inventory with Groups_
+
+image::images/web_inventory_group_details.png[Web inventory group details]
+
+_Figure 10: Web inventory group details_
+
+=== End Result
+
+At this point, we are doing with our basic configuration of Ansible Tower. In _exercise 1.5_, we will be soley focused on creating and running a job template so you can see Tower in action.
+
+

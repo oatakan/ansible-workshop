@@ -1,0 +1,23 @@
+== Ansible Resources
+
+Welcome to Ansible Resources, where you can find information and guides to help you learn about Ansible and Ansible Tower
+
+From getting started with creating your first automation, to trying out more advanced build and deployment techniques, these resources provide what you need to set up and manage your Ansible environment
+
+http://docs.ansible.com/ansible/intro_installation.html[Install Ansible]
+
+https://www.ansible.com/tower-trial[Ansible Tower Free Trial]
+
+http://docs.ansible.com/[Ansible and Ansible Tower Documentation]
+
+https://www.ansible.com/get-started[Ansible Quick Start Guide]
+
+https://www.ansible.com/videos[Ansible Videos]
+
+https://www.ansible.com/webinars-training[Webinars and Training]
+
+https://www.ansible.com/blog[Ansible Blog]
+
+https://www.ansible.com/ansible-in-depth-whitepaper[Ansible In Depth]
+
+https://github.com/ansible/ansible-examples[Ansible Examples]

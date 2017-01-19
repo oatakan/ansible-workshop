@@ -1,0 +1,64 @@
+== Automation for Everyone
+
+=== Today’s Agenda
+
+    * Ansible Overview Presentation - 9:00 - 9:30
+
+    * Setup - 9:30 - 9:40
+
+    * Exercise 1.0 - Ad-Hoc Commands - 9.40 - 9.50
+
+    * Exercise 1.1 - Writing Your First Playbook - 9:50 - 10:00
+
+    * Break - 10:00 - 10:10
+
+    * Exercise 1.2 - Running Your First Playbook - 10:10 - 10:20
+
+    * Exercise 1.3 - Installing Ansible Tower - 10:20 - 10:40
+
+    * Exercise 1.4 - Configuring Ansible Tower - 10:40 - 11:00
+
+    * Exercise 1.5 - Creating and Running a Job Template - 11:00 - 11:20
+
+    * Resources, Wrap Up - 11:20 - 11:30
+
+=== Before We Get Started
+
+==== Overview
+
+Today is meant for anyone who has any exposure to Ansible, whether you have used it or not. We are going to start with a short overview (yes, slideware) and then we’ll get into the lab as soon as possible. That is where we will spend most of our time.
+
+==== Your Responsibilities
+
+Have a discussion. This will be boring if it’s just us up here talking for over 4 hours.
+
+Participate. We are going to cut you loose with Ansible here in just a little while. Have questions. Have opinions.
+Hopefully you have your laptop with you. If not, please find a shoulder-surfing buddy. See? Not only can we dig into Ansible but you can make a new friend!
+
+==== Conventions Used in This Document
+
+Whenever you see a section like this, please pay close attention. We are leading you through a process.
+
+*Step 1:* Run this command to do something or other
+
+    ansible web -m setup
+
+*Step 2:* Edit this file in this specific way
+
+    ---
+    - hosts: web
+      name: This is a play within a playbook
+      become: yes
+      vars:
+        httpd_packages:
+          - httpd
+          - mod_wsgi
+
+Do not cut and paste text from this document. We really want you to learn ansible during this workshop, and part of that experience is typing out YAML and understanding it’s syntax, spacing, and alignments.
+
+==== Location-Specific Information
+
+
+This document was created by and for Red Hat, Inc. It is being released under https://creativecommons.org/licenses/by/4.0/[Creative Commons License 4.0]. You are free to re-use it in whole or in part.
+
+You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
