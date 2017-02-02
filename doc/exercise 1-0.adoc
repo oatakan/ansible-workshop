@@ -12,6 +12,8 @@ is the same as running
 
 We are going to be using the short-form options throughout this workshop.
 
+Make sure you log in to your 'control' node with your usename before you run the steps below:
+
 *Step 1:* Let’s start with something really basic - pinging a host. The ping module makes sure our web hosts are responsive.
 
     ansible web -m ping

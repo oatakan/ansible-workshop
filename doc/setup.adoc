@@ -1,6 +1,11 @@
 == Setup
 
-Today’s workshop infrastructure is being run in Amazon EC2.
+Find out from your instructor to see if the lab environment is hosed on Amazon EC2 or local system using Vagrant.
+
+After that proceed to the relevant section below to complete the set up.
+
+=== Amazon EC2
+
 Each of you should have received an email when late yesterday. It has the following information on it.
 
 - EC2 username/password
@@ -12,16 +17,16 @@ Each student’s personal EC2 lab is equipped with the following:
 
 (1) Control node (to run ansible plays and install Ansible Tower).
 
-(2) Endpoint nodes (to execute ansible playbooks upon).
+(4) Endpoint nodes (to execute ansible playbooks upon).
 
-All three of the aforementioned nodes are running Red Hat Enterprise Linux 7.2
+All five of the aforementioned nodes are running Red Hat Enterprise Linux 7.2
 
 - Ansible Core 2.2
 - Ansible Tower 3.0.3
 
 Before we can begin doing super-cool automations and such, we’ve got to get a few basics out of the way. Namely…​ ssh access to your EC2 nodes.
 
-=== Testing your environment
+==== Testing your environment
 
 Testing your access:
 
@@ -33,6 +38,47 @@ Testing your access:
 
 Be sure you can log in to your ec2 instances. If you can’t log in start shouting, loudly, and waving your hands!
 
+=== Vagrant on your local machine
+
+Make sure you have Vagrant (version 1.8.0 or higher, 1.9.1 has a bug and should not be installed) and the latest version of VirtualBox.
+
+- Clone the following git repo to your local machine:
+
+    https://github.com/rhtmgmtsa/lightbulb.git
+
+- Navigate to the directory where you cloned in a command line window. Run the following command to initiate the deployment.
+
+    vagrant up
+
+    This will take a few moments and use a cool ansible automation playbook to prepare your lab environment.
+
+You should have the following:
+
+(1) Control node (to run ansible plays and install Ansible Tower).
+
+(4) Endpoint nodes (to execute ansible playbooks upon).
+
+All five of the aforementioned nodes are running CentOS 7.3
+
+==== Testing your environment
+
+Testing your access:
+
+- In command line window run the following command:
+
+    vagrant ssh control
+    sudo su - labuser
+
+This will log you into the control node.
+
+- After log in to the control node, from inside the ssh session, ssh into other nodes using labuser/LearnAnsible! to test connectivity.
+
+    node1:      10.42.0.6
+    node2:      10.42.0.7
+    node3:      10.42.0.8
+    haproxy:    10.42.0.9
+
+
 === End Result
 
-At this point, everyone should have logged into each of your 3 nodes. If you haven’t, let us know so we can get you fixed up.
+At this point, everyone should have logged into each of your 5 nodes. If you haven’t, let us know so we can get you fixed up.
