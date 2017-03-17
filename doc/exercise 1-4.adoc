@@ -88,7 +88,7 @@ A Project is a logical collection of Ansible playbooks, represented in Tower. Yo
 |NAME |Ansible Workshop Project
 
 |DESCRIPTION
-|Boston workshop playbooks
+|Workshop playbooks
 
 |ORGANIZATION
 |Default
@@ -134,7 +134,7 @@ An Inventory can also be imported into Tower using the tower-manage command and 
 |NAME |Ansible Workshop Inventory
 
 |DESCRIPTION
-|Boston workshop hosts
+|Workshop hosts
 
 |ORGANIZATION
 |Default
