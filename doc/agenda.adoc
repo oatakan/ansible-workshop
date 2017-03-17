@@ -18,7 +18,7 @@
 
     * Exercise 1.4 - Configuring Ansible Tower - 12:40 - 13:00
 
-    * Exercise 1.5 - Creating and Running a Job Template - 13:00 - 12:20
+    * Exercise 1.5 - Creating and Running a Job Template - 13:00 - 13:20
 
     * Resources, Wrap Up - 13:20 - 13:30
 
